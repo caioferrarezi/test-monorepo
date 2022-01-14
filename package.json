@@ -7,5 +7,6 @@
   "scripts": {
     "postinstall": "lerna bootstrap",
     "test:unit": "lerna run test:unit --parallel"
-  }
+  },
+  "workspaces": ["packages/*"]
 }
