@@ -3,5 +3,9 @@
   "private": true,
   "devDependencies": {
     "lerna": "^4.0.0"
+  },
+  "scripts": {
+    "postinstall": "lerna bootstrap",
+    "test:unit": "lerna run test:unit --parallel"
   }
 }
