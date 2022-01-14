@@ -14,9 +14,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Teste
-        run: echo "$GITHUB_BASE_REF"
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
@@ -40,4 +39,4 @@ jobs:
         run: yarn install
 
       - name: Run unit tests
-        run: yarn test:unit
+        run: yarn test:unit --since refs/remotes/origin/${{ github.base_ref }}
