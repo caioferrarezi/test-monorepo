@@ -6,7 +6,9 @@
   },
   "scripts": {
     "postinstall": "lerna bootstrap",
-    "test:unit": "lerna run test:unit --parallel"
+    "test:unit": "lerna run test:unit --parallel",
+    "version": "lerna version --conventional-commits --yes",
+    "build": "lerna run build --parallel"
   },
   "workspaces": ["packages/*"]
 }
