@@ -36,5 +36,5 @@ jobs:
       - name: Install yarn dependencies
         run: yarn install
 
-      - name: Install yarn dependencies
-        run: yarn build
+      - name: Deploy application
+        run: yarn ci:deploy --since
