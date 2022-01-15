@@ -3,12 +3,14 @@
     "packages/*"
   ],
   "npmClient": "yarn",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "useWorkspaces": true,
   "command": {
     "version": {
       "conventionalCommits": true,
-      "allowBranch": ["master"],
+      "allowBranch": [
+        "master"
+      ],
       "message": "chore(release): publish version %s",
       "yes": true
     }
