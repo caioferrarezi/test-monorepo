@@ -4,5 +4,13 @@
   ],
   "npmClient": "yarn",
   "version": "0.0.0",
-  "useWorkspaces": true
+  "useWorkspaces": true,
+  "command": {
+    "version": {
+      "conventionalCommits": true,
+      "allowBranch": ["master"],
+      "message": "chore: new version",
+      "yes": true
+    }
+  }
 }
