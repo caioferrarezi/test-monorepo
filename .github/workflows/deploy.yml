@@ -40,4 +40,4 @@ jobs:
         run: yarn ci:deploy --since
 
       - name: New version
-        run: yarn version
+        run: yarn ci:version

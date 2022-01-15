@@ -9,9 +9,8 @@
     "version": {
       "conventionalCommits": true,
       "allowBranch": ["master"],
-      "message": "chore: new version",
-      "yes": true,
-      "createRelease": "github"
+      "message": "chore(release): publish version %s",
+      "yes": true
     }
   }
 }

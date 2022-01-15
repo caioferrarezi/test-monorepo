@@ -8,7 +8,7 @@
   "scripts": {
     "postinstall": "lerna bootstrap",
     "test:unit": "lerna run test:unit --parallel",
-    "version": "lerna version",
+    "ci:version": "lerna version",
     "ci:deploy": "lerna run ci:deploy"
   },
   "workspaces": ["packages/*"]
