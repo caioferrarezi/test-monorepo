@@ -17,8 +17,8 @@ jobs:
 
       - name: Configure git
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          git config user.name ${{ secrets.GH_BOT_NAME }}
+          git config user.email ${{ secrets.GH_BOT_EMAIL }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
