@@ -10,7 +10,8 @@
       "conventionalCommits": true,
       "allowBranch": ["master"],
       "message": "chore: new version",
-      "yes": true
+      "yes": true,
+      "createRelease": "github"
     }
   }
 }
