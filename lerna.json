@@ -12,7 +12,14 @@
         "master"
       ],
       "message": "chore(release): publish version %s",
-      "yes": true
+      "yes": true,
+      "ignoreChanges": [
+        "**/*.md",
+        "**/tests/**",
+        "**/.eslintrc.js",
+        "**/.gitignore",
+        "**/jest.config.js"
+      ]
     }
   }
 }
