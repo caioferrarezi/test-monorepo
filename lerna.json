@@ -12,8 +12,7 @@
         "master"
       ],
       "message": "chore(release): publish version %s",
-      "yes": true,
-      "noChangelog": true
+      "yes": true
     }
   }
 }
