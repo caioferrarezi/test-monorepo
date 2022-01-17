@@ -9,7 +9,8 @@
     "postinstall": "lerna bootstrap",
     "test:unit": "lerna run test:unit --stream",
     "ci:version": "lerna version --no-changelog",
-    "ci:deploy": "lerna run ci:deploy"
+    "ci:deploy": "lerna run ci:deploy",
+    "test": "yarn version"
   },
   "workspaces": ["packages/*"]
 }
