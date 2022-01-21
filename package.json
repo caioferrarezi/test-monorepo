@@ -7,10 +7,13 @@
   },
   "scripts": {
     "postinstall": "lerna bootstrap",
+    "lint": "lerna run lint --stream",
     "test:unit": "lerna run test:unit --stream",
     "ci:version": "lerna version --no-changelog",
     "ci:deploy": "lerna run ci:deploy",
     "test": "yarn version"
   },
-  "workspaces": ["packages/*"]
+  "workspaces": [
+    "packages/*"
+  ]
 }
