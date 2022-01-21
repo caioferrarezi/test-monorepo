@@ -10,7 +10,8 @@
     "lint": "lerna run lint --stream",
     "test:unit": "lerna run test:unit --stream",
     "ci:version": "lerna version --no-changelog",
-    "ci:deploy": "lerna run ci:deploy",
+    "ci:deploy:next": "lerna run ci:deploy:next",
+    "ci:deploy:production": "lerna run ci:deploy:production",
     "test": "yarn version"
   },
   "workspaces": [
