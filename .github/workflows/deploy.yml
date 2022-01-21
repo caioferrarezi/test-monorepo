@@ -7,7 +7,13 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest]
+        node: [16]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout code
@@ -23,7 +29,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: ${{ matrix.node }}
+          check-latest: true
 
       - name: Install global dependencies
         run: |
@@ -45,14 +52,17 @@ jobs:
       - name: Install yarn dependencies
         run: yarn install --freeze-lockfile
 
+      - name: Run linter
+        run: yarn lint --since
+
+      - name: Run unit tests
+        run: yarn test:unit --since
+
       - name: Deploy application
         run: yarn ci:deploy --since
         env:
           CF_EMAIL: ${{ secrets.CF_EMAIL }}
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-
-      - name: See diff
-        run: git diff
 
       - name: New version
         run: yarn ci:version
