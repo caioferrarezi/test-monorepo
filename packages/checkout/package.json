@@ -12,7 +12,8 @@
     "lint": "yarn lint:js && yarn lint:style",
     "lintfix": "yarn lint:js --fix && yarn lint:style --fix",
     "test": "jest",
-    "ci:deploy": "yarn generate && wrangler publish"
+    "ci:deploy:next": "yarn generate && wrangler publish --env next",
+    "ci:deploy:production": "yarn generate && wrangler publish --env production"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",

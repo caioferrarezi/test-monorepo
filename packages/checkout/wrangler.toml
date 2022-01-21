@@ -1,10 +1,18 @@
 account_id = "043e74269aee2ad8a3d239574cfac62f"
-name = "checkout"
+name = "checkout-dev"
 type = "webpack"
 route = ''
 zone_id = ''
 usage_model = ''
 compatibility_flags = []
 workers_dev = true
-site = {bucket = "./dist",entry-point = "workers-site"}
+site = { bucket = "./dist", entry-point = "workers-site" }
 compatibility_date = "2022-01-21"
+
+[env.next]
+name = "checkout-next"
+workers_dev = true
+
+[env.production]
+name = "checkout"
+workers_dev = false
