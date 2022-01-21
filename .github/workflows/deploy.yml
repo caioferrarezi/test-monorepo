@@ -52,8 +52,8 @@ jobs:
       - name: Deploy application
         run: yarn ci:deploy --since
 
-      - name: Clear changes
-        run: git clean -fdx
+      - name: See status
+        run: git status
 
       - name: New version
         run: yarn ci:version
