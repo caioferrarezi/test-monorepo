@@ -7,7 +7,7 @@
   },
   "scripts": {
     "postinstall": "lerna bootstrap",
-    "test:lint": "lerna run lint --stream",
+    "lint": "lerna run lint --stream",
     "test:unit": "lerna run test:unit --stream",
     "ci:version": "lerna version --no-changelog",
     "ci:deploy": "lerna run ci:deploy",
