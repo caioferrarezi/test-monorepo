@@ -1,0 +1,10 @@
+account_id = "043e74269aee2ad8a3d239574cfac62f"
+name = "checkout"
+type = "webpack"
+route = ''
+zone_id = ''
+usage_model = ''
+compatibility_flags = []
+workers_dev = true
+site = {bucket = "./dist",entry-point = "workers-site"}
+compatibility_date = "2022-01-21"

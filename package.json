@@ -13,5 +13,7 @@
     "ci:deploy": "lerna run ci:deploy",
     "test": "yarn version"
   },
-  "workspaces": ["packages/*"]
+  "workspaces": [
+    "packages/*"
+  ]
 }
