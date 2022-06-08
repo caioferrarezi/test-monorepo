@@ -53,11 +53,10 @@ jobs:
       - name: Run unit tests
         run: yarn test:unit --since
 
-      - name: Create changeset version
-        run: yarn changeset version
-
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          branch: changeset/version
+          branch: next
           base: master
+          title: [CI] Release
+          body: PR criado automaticamente com as alterações na branch next.
