@@ -53,17 +53,17 @@ jobs:
       - name: Run unit tests
         run: yarn test:unit --since
 
-      - name: View context attributes
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const getChangeSets = require('@changesets/read')
-            return getChangeSets(process.cwd())
-
       - name: Create Pull Request
-        uses: repo-sync/pull-request@v2
+        uses: peter-evans/create-pull-request@v4
         with:
-          destination_branch: master
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          pr_title: '[CI] Release'
-          pr_body: 'teste'
+          base: main
+          ref: next
+          branch: ci/release
+          commit-message: '[CI] create release'
+          branch: update-changelog
+          title: '[CI] Release'
+          body: |
+            ## Release PRs
+
+            @<usuario>
+            - #<numero do PR>
