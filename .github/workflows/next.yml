@@ -56,7 +56,8 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          branch: release/next
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: next
           base: master
           title: '[CI] Release'
           body: 'PR criado automaticamente com as alterações na branch next.'
