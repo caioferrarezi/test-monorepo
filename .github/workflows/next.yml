@@ -53,13 +53,10 @@ jobs:
       - name: Run unit tests
         run: yarn test:unit --since
 
-      - name: Create Release Pull Request
-        uses: changesets/action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create changeset version
+        run: yarn changeset version
 
-      - name: Deploy application
-        run: yarn ci:deploy:next --since
-        env:
-          CF_EMAIL: ${{ secrets.CF_EMAIL }}
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        branch: changeset/version
+        base: master
