@@ -60,7 +60,6 @@ jobs:
           ref: next
           branch: ci/release
           commit-message: '[CI] create release'
-          branch: update-changelog
           title: '[CI] Release'
           body: |
             ## Release PRs
