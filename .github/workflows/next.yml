@@ -56,7 +56,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          base: main
+          base: master
           branch: ci/release
           commit-message: '[CI] create release'
           title: '[CI] Release'
