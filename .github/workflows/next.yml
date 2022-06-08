@@ -56,7 +56,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          branch: next
+          branch: release/next
           base: master
           title: '[CI] Release'
           body: 'PR criado automaticamente com as alterações na branch next.'
