@@ -58,5 +58,6 @@ jobs:
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
-        branch: changeset/version
-        base: master
+        with:
+          branch: changeset/version
+          base: master
