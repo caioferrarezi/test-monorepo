@@ -54,10 +54,10 @@ jobs:
         run: yarn test:unit --since
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
+        uses: repo-sync/pull-request@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: next
-          base: master
-          title: '[CI] Release'
-          body: 'PR criado automaticamente com as alterações na branch next.'
+          destination_branch: "main"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_title: '[CI] Release'
+          pr_body: |
+            Este PR é criado automaticamente com as alterações de next
