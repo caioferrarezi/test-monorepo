@@ -64,5 +64,7 @@ jobs:
           CF_EMAIL: ${{ secrets.CF_EMAIL }}
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
 
-      - name: New version
-        run: yarn ci:version
+      - name: Create Release Pull Request
+        uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

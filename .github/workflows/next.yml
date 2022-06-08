@@ -53,8 +53,11 @@ jobs:
       - name: Run unit tests
         run: yarn test:unit --since
 
-      - name: Deploy application
-        run: yarn ci:deploy:next --since
-        env:
-          CF_EMAIL: ${{ secrets.CF_EMAIL }}
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+      - name: Create Pull Request
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: master
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_title: '[CI] Release'
+          pr_body: |
+            Este PR é criado automaticamente com as alterações de next
