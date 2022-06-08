@@ -57,7 +57,6 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           base: main
-          ref: next
           branch: ci/release
           commit-message: '[CI] create release'
           title: '[CI] Release'
