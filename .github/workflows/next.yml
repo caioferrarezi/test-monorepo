@@ -60,4 +60,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           pr_title: '[CI] Release'
           pr_body: |
-            Este PR é criado automaticamente com as alterações de next
+            $(yarn changeset status --verbose)
