@@ -58,5 +58,5 @@ jobs:
         with:
           branch: next
           base: master
-          title: [CI] Release
-          body: PR criado automaticamente com as alterações na branch next.
+          title: '[CI] Release'
+          body: 'PR criado automaticamente com as alterações na branch next.'
