@@ -6,14 +6,8 @@ on:
       - next
 
 jobs:
-  build:
-    strategy:
-      fail-fast: true
-      matrix:
-        os: [ubuntu-latest]
-        node: [16]
-
-    runs-on: ${{ matrix.os }}
+  ci:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -24,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 16
           check-latest: true
 
       - name: Install global dependencies
@@ -52,6 +46,21 @@ jobs:
 
       - name: Run unit tests
         run: yarn test:unit --since
+
+  release:
+    needs: ci
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ci/release
+          fetch-depth: 0
+
+      - name: Update with next branch
+        run: |
+          git reset --hard origin/next
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
