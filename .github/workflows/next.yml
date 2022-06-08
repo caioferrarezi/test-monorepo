@@ -57,7 +57,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            import getChangesets from '@changesets/read'
+            const getChangeSets = require('@changesets/read')
             return getChangeSets(process.cwd())
 
       - name: Create Pull Request
