@@ -71,5 +71,5 @@ jobs:
           ${{ runner.os }}-pnpm-store-
 
     - run: |
-        ls -la packages/packages1
+        ls -la packages/package1
 
