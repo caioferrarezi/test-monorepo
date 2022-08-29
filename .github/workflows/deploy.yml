@@ -39,9 +39,12 @@ jobs:
       if: steps.pnpm-cache.outputs.cache-hit != 'true'
       run: pnpm install --frozen-lockfile --prefer-offline --ignore-scripts
 
-  package-1:
+  package1:
     needs: [dependencies]
 
+    runs-on: ubuntu-latest
+
+    steps:
     - uses: actions/checkout@v2
 
     - name: install pnpm
