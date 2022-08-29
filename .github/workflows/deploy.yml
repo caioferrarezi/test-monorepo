@@ -13,6 +13,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - uses: ./.github/actions/pnpm
+      id: pnpm-cache
 
     - name: install dependencies
       if: steps.pnpm-cache.outputs.cache-hit != 'true'

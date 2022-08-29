@@ -1,5 +1,9 @@
 name: 'pnpm setup'
 
+outputs:
+  cache-hit:
+    value: ${{ steps.pnpm-cache.outputs.cache-hit }}
+
 runs:
   using: "composite"
   steps:
