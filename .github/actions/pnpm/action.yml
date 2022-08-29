@@ -12,6 +12,7 @@ runs:
 
     - name: get pnpm store directory
       id: pnpm-cache-dir
+      shell: bash
       run: |
         echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
 
