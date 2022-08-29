@@ -39,7 +39,7 @@ jobs:
       if: steps.pnpm-cache.outputs.cache-hit != 'true'
       run: pnpm install --frozen-lockfile --prefer-offline --ignore-scripts
 
-  package1:
+  package-1:
     needs: [dependencies]
 
     - uses: actions/checkout@v2
