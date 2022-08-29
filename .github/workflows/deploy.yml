@@ -70,6 +70,5 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-pnpm-store-
 
-    - run: |
-        ls -la packages/package1
+    - run: pnpm build -r --filter=package1
 
