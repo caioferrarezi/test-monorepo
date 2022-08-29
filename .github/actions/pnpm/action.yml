@@ -1,3 +1,5 @@
+name: 'pnpm setup'
+
 runs:
   using: "composite"
   steps:
