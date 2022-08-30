@@ -39,30 +39,4 @@ jobs:
   package1:
     needs: [dependencies, changes]
     if: ${{ contains(fromJSON(needs.changes.outputs.packages), 'package1') }}
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/actions/pnpm
-      - uses: ./.github/actions/package1
-
-  package2:
-    needs: [dependencies, changes]
-    if: ${{ contains(fromJSON(needs.changes.outputs.packages), 'package2') }}
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/actions/pnpm
-      - uses: ./.github/actions/package2
-
-  package3:
-    needs: [dependencies, changes]
-    if: ${{ contains(fromJSON(needs.changes.outputs.packages), 'package3') }}
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/actions/pnpm
-      - uses: ./.github/actions/package3
+    uses: ./.github/workflows/package1
