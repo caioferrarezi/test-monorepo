@@ -26,6 +26,8 @@ jobs:
       packages: ${{ steps.filter.outputs.changes }}
 
     steps:
+      - uses: actions/checkout@v2
+
       - uses: dorny/paths-filter@v2
         id: filter
         with:
