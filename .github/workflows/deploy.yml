@@ -38,17 +38,18 @@ jobs:
 
   package1:
     needs: [dependencies, changes]
+    if: ${{ contains(fromJSON(needs.changes.packages), 'package1') }}
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo ${{ needs.changes.packages }}
       - uses: actions/checkout@v2
       - uses: ./.github/actions/pnpm
       - uses: ./.github/actions/package1
 
   package2:
     needs: [dependencies, changes]
-    if: ${{ contains(needs.changes.packages, 'package2') }}
+    if: ${{ contains(fromJSON(needs.changes.packages), 'package2') }}
+
     runs-on: ubuntu-latest
 
     steps:
@@ -58,7 +59,7 @@ jobs:
 
   package3:
     needs: [dependencies, changes]
-    if: ${{ contains(needs.changes.packages, 'package3') }}
+    if: ${{ contains(fromJSON(needs.changes.packages), 'package3') }}
     runs-on: ubuntu-latest
 
     steps:
