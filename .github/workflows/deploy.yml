@@ -37,8 +37,8 @@ jobs:
             package3: 'packages/package3/**'
 
   package1:
-    if: ${{ contains(needs.changes.packages, 'package1') }}
     needs: [dependencies, changes]
+    if: ${{ contains(needs.changes.packages, 'package1') }}
     runs-on: ubuntu-latest
 
     steps:
@@ -47,8 +47,8 @@ jobs:
       - uses: ./.github/actions/package1
 
   package2:
-    if: ${{ contains(needs.changes.packages, 'package2') }}
     needs: [dependencies, changes]
+    if: ${{ contains(needs.changes.packages, 'package2') }}
     runs-on: ubuntu-latest
 
     steps:
@@ -57,8 +57,8 @@ jobs:
       - uses: ./.github/actions/package2
 
   package3:
-    if: ${{ contains(needs.changes.packages, 'package3') }}
     needs: [dependencies, changes]
+    if: ${{ contains(needs.changes.packages, 'package3') }}
     runs-on: ubuntu-latest
 
     steps:
