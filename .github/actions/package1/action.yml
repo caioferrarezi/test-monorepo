@@ -1,0 +1,7 @@
+name: 'package 1 deploy'
+
+runs:
+  using: "composite"
+  steps:
+    - run: pnpm --filter=package1 build
+      shell: bash

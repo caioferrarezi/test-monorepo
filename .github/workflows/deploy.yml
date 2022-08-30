@@ -19,39 +19,29 @@ jobs:
       if: steps.pnpm-cache.outputs.cache-hit != 'true'
       run: pnpm install --frozen-lockfile --prefer-offline --ignore-scripts
 
-  package1:
-    needs: [dependencies]
-
+  changes:
     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
-
-    - uses: ./.github/actions/pnpm
-
-    - run: pnpm --filter=package1 build
-
-  package2:
-    needs: [dependencies]
-
-    runs-on: ubuntu-latest
+    outputs:
+      packages: ${{ steps.filter.outputs.changes }}
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            package1: 'packages/package1/**'
+            package2: 'packages/package2/**'
+            package3: 'packages/package3/**'
 
-    - uses: ./.github/actions/pnpm
+  deploy:
+    needs: [dependencies, changes]
 
-    - run: pnpm --filter=package2 build
-
-  package3:
-    needs: [dependencies]
-
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package: ${{ fromJSON(needs.changes.outputs.packages) }}
 
     steps:
-    - uses: actions/checkout@v2
-
-    - uses: ./.github/actions/pnpm
-
-    - run: pnpm --filter=package3 build
-
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/pnpm
+      - uses: ./.github/actions/${{ matrix.package }}
