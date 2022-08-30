@@ -36,18 +36,32 @@ jobs:
             package2: 'packages/package2/**'
             package3: 'packages/package3/**'
 
-  deploy:
+  package1:
+    if: ${{ contains(needs.changes.packages, 'package1') }}
     needs: [dependencies, changes]
-
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        package: ${{ fromJSON(needs.changes.outputs.packages) }}
 
     steps:
       - uses: actions/checkout@v2
-
       - uses: ./.github/actions/pnpm
+      - uses: ./.github/actions/package1
 
-      - uses: ${{ matrix.package }}
+  package2:
+    if: ${{ contains(needs.changes.packages, 'package2') }}
+    needs: [dependencies, changes]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/pnpm
+      - uses: ./.github/actions/package2
+
+  package3:
+    if: ${{ contains(needs.changes.packages, 'package3') }}
+    needs: [dependencies, changes]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/pnpm
+      - uses: ./.github/actions/package3
