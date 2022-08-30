@@ -4,7 +4,21 @@ on:
   workflow_call:
 
 jobs:
+  continuous-integration:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PNPM
+        uses: ./.github/actions/pnpm
+
+      - name: Build code
+        run: pnpm --filter=package1 test
+
   deploy:
+    needs: [continuous-integration]
     runs-on: ubuntu-latest
 
     steps:
