@@ -1,0 +1,18 @@
+name: 'Package 1 Deploy'
+
+on:
+  workflow_call:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PNPM
+        uses: ./.github/actions/pnpm
+
+      - name: Build code
+        run: pnpm --filter=package1 build
