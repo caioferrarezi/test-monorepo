@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo ${{ contains(needs.changes.packages, 'package1') }}
+      - run: echo ${{ contains(needs.changes.packages, "package1") }}
       - uses: actions/checkout@v2
       - uses: ./.github/actions/pnpm
       - uses: ./.github/actions/package1
