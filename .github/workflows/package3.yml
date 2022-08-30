@@ -4,6 +4,19 @@ on:
   workflow_call:
 
 jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PNPM
+        uses: ./.github/actions/pnpm
+
+      - name: Build code
+        run: pnpm --filter=package1 test
+
   deploy:
     runs-on: ubuntu-latest
 
