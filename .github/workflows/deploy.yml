@@ -32,12 +32,13 @@ jobs:
         id: filter
         with:
           filters: |
-            package1: 'packages/package1/**'
-            package2: 'packages/package2/**'
-            package3: 'packages/package3/**'
+            package1: ['*.json', 'packages/package1/**']
+            package2: ['*.json', 'packages/package2/**']
+            package3: ['*.json', 'packages/package3/**']
 
   package1:
-    needs: [dependencies]
+    needs: [dependencies, changes]
+    if: ${{ contains(fromJSON(needs.changes.outputs.packages), 'package1') }}
     uses: ./.github/workflows/package1.yml
 
   package2:
