@@ -47,6 +47,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - uses: ./.github/actions/pnpm
-      - uses: ./.github/actions/package1
-      - run: echo ${{ matrix.package }}
+
+      - uses: "./.github/actions/${{ matrix.package }}"
