@@ -38,7 +38,7 @@ jobs:
 
   package1:
     needs: [dependencies, changes]
-    if: ${{ contains(fromJSON(needs.changes.packages), 'package1') }}
+    if: ${{ contains(fromJSON(needs.changes.outputs.packages), 'package1') }}
     runs-on: ubuntu-latest
 
     steps:
@@ -48,7 +48,7 @@ jobs:
 
   package2:
     needs: [dependencies, changes]
-    if: ${{ contains(fromJSON(needs.changes.packages), 'package2') }}
+    if: ${{ contains(fromJSON(needs.changes.outputs.packages), 'package2') }}
 
     runs-on: ubuntu-latest
 
@@ -59,7 +59,7 @@ jobs:
 
   package3:
     needs: [dependencies, changes]
-    if: ${{ contains(fromJSON(needs.changes.packages), 'package3') }}
+    if: ${{ contains(fromJSON(needs.changes.outputs.packages), 'package3') }}
     runs-on: ubuntu-latest
 
     steps:
