@@ -40,3 +40,13 @@ jobs:
     needs: [dependencies, changes]
     if: ${{ contains(fromJSON(needs.changes.outputs.packages), 'package1') }}
     uses: ./.github/workflows/package1.yml
+
+  package2:
+    needs: [dependencies, changes]
+    if: ${{ contains(fromJSON(needs.changes.outputs.packages), 'package2') }}
+    uses: ./.github/workflows/package1.yml
+
+  package3:
+    needs: [dependencies, changes]
+    if: ${{ contains(fromJSON(needs.changes.outputs.packages), 'package3') }}
+    uses: ./.github/workflows/package3.yml
