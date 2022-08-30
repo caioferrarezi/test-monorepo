@@ -37,8 +37,7 @@ jobs:
             package3: 'packages/package3/**'
 
   package1:
-    needs: [dependencies, changes]
-    if: ${{ contains(fromJSON(needs.changes.outputs.packages), 'package1') }}
+    needs: [dependencies]
     uses: ./.github/workflows/package1.yml
 
   package2:

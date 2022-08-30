@@ -1,7 +1,0 @@
-name: 'package 1 deploy'
-
-runs:
-  using: "composite"
-  steps:
-    - run: pnpm --filter=package2 build
-      shell: bash
