@@ -50,4 +50,4 @@ jobs:
 
       - uses: ./.github/actions/pnpm
 
-      - uses: "./.github/actions/${{ matrix.package }}"
+      - uses: ${{ matrix.package }}
